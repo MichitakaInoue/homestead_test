@@ -18,3 +18,30 @@ Route::get('/', function () {
 Route::get('/sample', function(){
     return view('sample');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/sample', function(){ //sample
+    return view('sample');
+}); 
+
+
+Route::get('/judgesNew', function(){//新規追加　確認
+    return view('data.judges');
+});
+Route::post('/judgesNew', )->name('judges.new');
+
+
+Route::get('/master', function(){//yieldのサンプル
+    return view('sample.master');
+});
+
+Route::get('/dashboard', function(){////yieldのサンプル
+    return view('sample.dashboard');
+});
+
+
+
+

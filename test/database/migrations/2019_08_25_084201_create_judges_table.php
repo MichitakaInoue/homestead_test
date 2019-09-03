@@ -15,7 +15,8 @@ class CreateJudgesTable extends Migration
     {
         Schema::create('judges', function (Blueprint $table) {//審査テーブル
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->integer('number');
             $table->integer('password');
             $table->unsignedBigInteger('group_id');//必要?
