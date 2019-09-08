@@ -17,10 +17,10 @@ class CreateJudgesTable extends Migration
             $table->bigIncrements('id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->integer('number');
-            $table->integer('password');
-            $table->unsignedBigInteger('group_id');//必要?
-            $table->foreign('group_id')->references('id')->on('group');
+            $table->string('number');
+            $table->string('password');
+            $table->unsignedBigInteger('groups_id');//必要?
+            $table->foreign('groups_id')->references('id')->on('groups');
             $table->softDeletes();
             $table->timestamps();
         });

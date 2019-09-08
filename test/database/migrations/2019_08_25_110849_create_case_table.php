@@ -13,10 +13,10 @@ class CreateCaseTable extends Migration
      */
     public function up()
     {
-        Schema::create('case', function (Blueprint $table) {
+        Schema::create('cases', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('judgment_id');
-            $table->foreign('judgment_id')->references('id')->on('judgment');
+            $table->foreign('judgment_id')->references('id')->on('judgments');
             //deleted_atは必要か?
             $table->timestamps();
         });

@@ -13,10 +13,10 @@ class CreateDocumentTable extends Migration
      */
     public function up()
     {
-        Schema::create('document', function (Blueprint $table) {
+        Schema::create('documents', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('case_id');
-            $table->foreign('case_id')->references('id')->on('case');
+            $table->foreign('case_id')->references('id')->on('cases');
             $table->integer('order');//1.2.3 htmlのhiddenタグでの数字をpostさせる
             $table->string('pdf_path');
             $table->softDeletes();
@@ -31,6 +31,6 @@ class CreateDocumentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('document');
+        Schema::dropIfExists('documents');
     }
 }

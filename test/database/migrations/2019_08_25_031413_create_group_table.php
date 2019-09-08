@@ -13,8 +13,9 @@ class CreateGroupTable extends Migration
      */
     public function up()
     {
-        Schema::create('group', function (Blueprint $table) {
+        Schema::create('groups', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -27,6 +28,6 @@ class CreateGroupTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('group');
+        Schema::dropIfExists('groups');
     }
 }

@@ -34,6 +34,21 @@ Route::get('/judgesNew', function(){//新規追加　確認
 Route::post('/judgesNew', )->name('judges.new');
 
 
+Route::get('/caseDetail', function(){
+    return view('ebina.caseDetail');
+});
+
+
+
+
+
+Route::get('/routecaseIndex', 'CasesIndexController@index');//case一覧投稿について
+
+
+
+
+
+
 Route::get('/master', function(){//yieldのサンプル
     return view('sample.master');
 });
@@ -43,5 +58,5 @@ Route::get('/dashboard', function(){////yieldのサンプル
 });
 
 
-
+Route::get('/createJudgment', 'CreateJudgmentController@index');
 

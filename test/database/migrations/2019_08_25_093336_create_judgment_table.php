@@ -13,10 +13,12 @@ class CreateJudgmentTable extends Migration
      */
     public function up()
     {
-        Schema::create('judgment', function (Blueprint $table) {
+        Schema::create('judgments', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('groups_id');//必要?
+            $table->foreign('groups_id')->references('id')->on('groups');
             $table->unsignedBigInteger('judges_id');
-            $table->foreign('judges_id')->references('id')->on('judges');
+            $table->foreign('judges_id')->references('id')->on('judges');//審査員id
             $table->dateTime('period_from');//審査開始
             $table->dateTime('period_to');//審査期間
             $table->softDeletes();
@@ -31,6 +33,6 @@ class CreateJudgmentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('judgment');
+        Schema::dropIfExists('judgments');
     }
 }
